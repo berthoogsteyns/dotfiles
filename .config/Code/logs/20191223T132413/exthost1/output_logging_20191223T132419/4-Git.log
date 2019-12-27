@@ -1,0 +1,14 @@
+Looking for git in: git
+Using git 2.24.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/gandalf/Dev/IT-Project/Frontend
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse feature/loginlogout
+> git rev-parse --symbolic-full-name feature/loginlogout@{u}
+> git rev-list --left-right feature/loginlogout...refs/remotes/origin/feature/loginlogout
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin

@@ -1,0 +1,49 @@
+["INFO" - 9:27:04 AM] Extension Name: "prettier-vscode".
+["INFO" - 9:27:04 AM] Extension Version: "3.16.1".
+["INFO" - 9:27:05 AM] Enabling prettier for languages
+[
+  "css",
+  "graphql",
+  "html",
+  "javascript",
+  "javascriptreact",
+  "json",
+  "json5",
+  "jsonc",
+  "less",
+  "markdown",
+  "mdx",
+  "mongo",
+  "postcss",
+  "scss",
+  "typescript",
+  "typescriptreact",
+  "vue",
+  "yaml"
+]
+["INFO" - 9:27:05 AM] Enabling prettier for range supported languages
+[
+  "graphql",
+  "javascript",
+  "javascriptreact",
+  "json",
+  "typescript",
+  "typescriptreact"
+]
+["INFO" - 10:20:11 AM] Formatting /home/gandalf/Dev/IT-Project/Frontend/src/app/components/log-in/log-in.component.ts
+["INFO" - 10:20:11 AM] Using bundled version of prettier.
+["INFO" - 10:20:11 AM] Using ignore file (if present) at /home/gandalf/Dev/IT-Project/Frontend/.prettierignore
+["INFO" - 10:20:11 AM] File Info:
+{
+  "ignored": false,
+  "inferredParser": "typescript"
+}
+["INFO" - 10:20:11 AM] Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code configuration will not be used
+["INFO" - 10:20:11 AM] Prettier Options:
+{
+  "filepath": "/home/gandalf/Dev/IT-Project/Frontend/src/app/components/log-in/log-in.component.ts",
+  "parser": "typescript",
+  "useTabs": false,
+  "tabWidth": 2
+}
+["INFO" - 10:20:11 AM] Formatting completed in 284.925834ms.

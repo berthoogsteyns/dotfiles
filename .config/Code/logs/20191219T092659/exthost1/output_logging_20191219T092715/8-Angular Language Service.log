@@ -1,0 +1,4 @@
+[Info  - 9:27:15 AM] Angular language server process ID: 2584
+[Info  - 9:27:15 AM] Using typescript v3.6.4 from /home/gandalf/.vscode/extensions/angular.ng-template-0.900.2/node_modules/typescript/lib/tsserverlibrary.js
+[Info  - 9:27:15 AM] Using @angular/language-service v9.0.0-rc.6 from /home/gandalf/.vscode/extensions/angular.ng-template-0.900.2/server/node_modules/@angular/language-service/bundles/language-service.umd.js
+[Info  - 9:27:15 AM] Log file: /home/gandalf/.config/Code/logs/20191219T092659/exthost1/Angular.ng-template/nglangsvc.log

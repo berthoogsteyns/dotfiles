@@ -1,0 +1,558 @@
+# Default config for sway
+
+#
+
+# Copy this to ~/.config/sway/config and edit it to your liking.
+
+#
+
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+
+exec redshift
+exec flatpak run com.discordapp.Discord
+exec --no-starup-id safeeyes
+
+
+
+#
+
+# Logo key. Use Mod1 for Alt.
+
+set $mod Mod4
+
+#font config
+#
+
+font pango:Monaco,12 
+# Your preferred terminal emulator
+
+set $term alacritty
+bindsym $mod+Return exec $term	
+
+# Your preferred application launcher
+
+set $menu dmenu_path | wofi --conf .config/wofi/config --style .config/wofi/styles.css --show dmenu | xargs swaymsg exec -- 
+
+
+### Output configuration
+
+#
+
+# Default wallpaper (more resolutions are available in /usr/share/sway/)
+
+
+output * bg ~/Pictures/wallpaper/4k-blade-runner-2049-7j-1920x1080.jpg fill
+
+
+
+
+set $laptop eDP-1 
+
+bindswitch lid:on output $laptop disable
+
+bindswitch lid:off output $laptop enable
+
+
+
+# Example configuration:
+
+output eDP-1 resolution 1920x1080 position 0,0
+
+
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+
+
+### Input configuration
+
+#
+
+# Example configuration:
+
+#
+
+##"2:14:SynPS/2_Synaptics_TouchPad" {
+
+
+
+#       natural_scroll enabled
+
+#       middle_emulation enabled
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {  
+
+   accel_profile adaptive
+
+   dwt enabled
+
+   tap enabled
+
+   scroll_method two_finger 
+
+   natural_scroll enabled
+
+ }
+
+#
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+
+# Read `man 5 sway-input` for more information about this section.
+
+
+
+ #:::::::::disable_window_borders::::::::                                                                  
+
+for_window [class="^.*"] border pixel 1
+
+default_border normal 
+
+default_floating_border  normal   
+
+
+
+
+
+#:::::i3_ gaps::::::::::::::                                                                              
+
+	set $default_gaps_inner 10                                                                                
+
+	set $default_gaps_outer 5                                                                                 
+
+	gaps inner $default_gaps_inner                                                                            
+
+	gaps outer $default_gaps_outer                                                                            
+
+	smart_gaps on                                                                                             
+
+
+
+	bindsym $mod+Shift+s sticky toggle
+
+
+
+### Key bindings
+
+#
+
+# Basics:
+
+#
+
+    # start a terminal
+
+
+
+    # kill focused window
+
+    bindsym $mod+Shift+q kill
+
+    bindsym $mod+f fullscreen
+
+    # start your launcher
+
+	bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+
+    # Resize them with right mouse button + $mod.
+
+    # Despite the name, also works for non-floating windows.
+
+    # Change normal to inverse to use left mouse button for resizing and right
+
+    # mouse button for dragging.
+
+    floating_modifier $mod normal
+
+
+
+
+
+# Home row direction keys, like vim
+
+	set $left h
+
+	set $down j
+
+	set $up k
+
+	set $right l
+
+
+
+
+
+# reload the configuration file
+
+    bindsym $mod+Shift+c reload  
+
+
+ # exit sway (logs you out of your wayland session)
+
+    bindsym $mod+Shift+e exit
+
+
+
+#sway lock
+
+    bindsym $mod+l exec  swaylock -c "#000000"
+
+# Moving around:
+
+#
+
+    # Move your focus around
+
+##    bindsym $mod+$left focus left
+
+#
+
+    # Move your focus around
+
+##    bindsym $mod+$left focus left
+
+ #   bindsym $mod+$down focus down
+
+  #  bindsym $mod+$up focus up
+
+   # bindsym $mod+$right focus right
+
+    # or use $mod+[up|down|left|right]
+
+    bindsym $mod+Left focus left
+
+    bindsym $mod+Down focus down
+
+    bindsym $mod+Up focus up
+
+    bindsym $mod+Right focus right
+
+
+
+    # _move_ the focused window with the same, but add Shift
+
+    bindsym $mod+Shift+$left move left
+
+    bindsym $mod+Shift+$down move down
+
+    bindsym $mod+Shift+$up move up
+
+    bindsym $mod+Shift+$right move right
+
+    # ditto, with arrow keys
+
+    bindsym $mod+Shift+Left move left
+
+    bindsym $mod+Shift+Down move down
+
+    bindsym $mod+Shift+Up move up
+
+    bindsym $mod+Shift+Right move right
+
+#
+
+
+
+# enable floating mode for all Specified windows
+
+for_window [class="pavucontrol"] floating enable
+
+for_window [class="vlc"] floating enable 
+
+
+
+#quick_back_and_forth_work_space
+
+workspace_auto_back_and_forth yes
+
+bindsym $mod+z workspace back_and_forth
+
+
+
+bindsym $mod+Tab workspace prev_on_output
+
+
+
+bindsym $mod+Shift+Tab workspace next_on_output
+
+
+
+######grouping workspaces+name####
+
+#set $ws1 "<span color='#78da59'>1:</span>"
+
+set $ws1 "1:"
+
+set $ws2 "2:"
+
+set $ws3 "3:"    
+
+set $ws4  "4:"
+
+set $ws5  "5:"
+
+set $ws6  "6:"
+
+set $ws7  "7:"
+
+set $ws8  "8:"
+
+set $ws9  "9:"
+
+set $ws10 "10:"
+
+
+
+#assign [class="(?i)urxvt"] → $ws1
+
+assign [class="(?i)firefox"] → $ws2
+
+assign [class="(?i)mpv"] → $ws3
+
+assign [class="(?i)mupdf"] → $ws4
+
+assign [class="(?i)wireshark-gtk"] → $ws8
+
+assign [class="^Firefox$" instance="^Navigator$"] → $ws9
+
+assign [class="^Tor Browser$" instance="^Navigator$"] → $ws9
+
+
+
+    # switch to workspace
+
+    bindsym $mod+1 workspace $ws1
+
+    bindsym $mod+2 workspace $ws2
+
+    bindsym $mod+3 workspace $ws3
+
+    bindsym $mod+4 workspace $ws4
+
+    bindsym $mod+5 workspace $ws5
+
+    bindsym $mod+6 workspace $ws6
+
+    bindsym $mod+7 workspace $ws7
+
+    bindsym $mod+8 workspace $ws8
+
+    bindsym $mod+9 workspace $ws9
+
+    bindsym $mod+0 workspace $ws10
+
+    # move focused container to workspace
+
+    bindsym $mod+Shift+1 move container to workspace $ws1
+
+    bindsym $mod+Shift+2 move container to workspace $ws2
+
+    bindsym $mod+Shift+3 move container to workspace $ws3
+
+    bindsym $mod+Shift+4 move container to workspace $ws4
+
+    bindsym $mod+Shift+5 move container to workspace $ws5
+
+    bindsym $mod+Shift+6 move container to workspace $ws6
+
+    bindsym $mod+Shift+7 move container to workspace $ws7
+
+    bindsym $mod+Shift+8 move container to workspace $ws8
+
+    bindsym $mod+Shift+9 move container to workspace $ws9
+
+    bindsym $mod+Shift+0 move container to workspace $ws10
+
+    # Note: w --no-startup-id orkspaces can have any name you want, not just numbers.
+
+    # We just use 1-10 as the default.
+
+#
+
+# Layout stuff:
+
+#
+
+    # You can "split" the current object of your focus with
+
+    # $mod+b or $mod+v, for horizontal and vertical splits
+
+    # respectively.
+
+    bindsym $mod+b splith
+
+    bindsym $mod+v splitv
+
+
+
+    # Switch the current container between different layout styles
+
+    bindsym $mod+s layout stacking
+
+    bindsym $mod+w layout tabbed
+
+    bindsym $mod+e layout toggle split
+
+
+
+    # Toggle the current focus between tiling and floating mode
+
+    bindsym $mod+Shift+space floating toggle
+
+
+
+    # Swap focus between the tiling area and the floating area
+
+    bindsym $mod+space focus mode_toggle
+
+
+
+    # move focus to the parent container
+
+   # bindsym $mod+a focus parent
+
+#
+
+# Scratchpad:
+
+#
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+
+    # You can send windows there and get them back later.
+
+
+
+    # Move the currently focused window to the scratchpad
+
+    bindsym $mod+Shift+minus move scratchpad
+
+
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+
+    # If there are multiple scratchpad windows, this command cycles through them.
+
+    bindsym $mod+minus scratchpad show
+
+#
+
+# Resizing containers:
+
+#
+
+mode "resize" {
+
+    # left will shrink the containers width
+
+    # right will grow the containers width
+
+    # up will shrink the containers height
+
+    # down will grow the containers height
+
+    bindsym $left resize shrink width 10 px or 10 ppt
+
+    bindsym $down resize grow height 10 px or 10 ppt
+
+    bindsym $up resize shrink height 10 px or 10 ppt
+
+    bindsym $right resize grow width 10 px or 10 ppt
+
+
+
+    # ditto, with arrow keys
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+
+    bindsym Down resize grow height 10 px or 10 ppt
+
+    bindsym Up resize shrink height 10 px or 10 ppt
+
+    bindsym Right resize grow width 10 px or 10 ppt
+
+
+
+    # return to default mode
+
+    bindsym Return mode "default"
+
+    bindsym Escape mode "default"
+
+}
+
+bindsym $mod+r mode "resize"
+
+
+
+#:::::::::ALSA:::::::::::::
+
+
+
+#bindsym XF86AudioMute exec --no-startup-id  amixer set Master toggle
+
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+
+#------------pulseAudio----------------------
+
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ #increase sound volume
+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- #decrease sound volume
+
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle # mute sound
+
+
+
+#brightness control
+
+bindsym XF86MonBrightnessUp exec light -A 10
+
+bindsym XF86MonBrightnessDown exec light -U 10
+
+
+
+#
+
+# Status Bar:
+
+#
+
+# Read `man 5 sway-bar` for more information about this section.
+exec waybar -c ~/.config/waybar/config -s ~/.config/waybar/styles.css
+
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    swaybar_command waybar #-c ~/.config/waybar/config -s ~/.config/waybar/styles.css
+}
+
+###########:::::::::::::::: MARCO DE VENTANA ::::::::::::::::::#
+
+#################################################################
+
+# class           		 border  backgr  text   indicator child_border 
+
+#client.focused		 	#607d8b #607d8b #DFDFDF  #dddddd   #607d8b
+
+#client.focused_inactive 	#263238 #263238 #9a9b9c  #111111   #263238
+
+#client.unfocused 		#455a64 #455a64 #a1a1a1  #bfbfbf   #455a64	
+
+#client.urgent   		#4a4b4c #4a4b4c #fdfdfd  #fbfbfb   #4a4c4b
+
+#client.placeholder     		#000000 #0c0c0c #ffffff  #000000   #0c0c0c
+
+#client.background       	#111111
+
+
+
+
+
+

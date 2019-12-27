@@ -1,0 +1,112 @@
+[2019-12-23 14:22:36.336] [renderer1] [error] Illegal argument: line must be non-negative: Error: Illegal argument: line must be non-negative
+    at Object.t.illegalArgument (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:9:868)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:360:567)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:359:919)
+    at CodeActionProvider.getInitializeFromCtorCommand (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:166:61)
+    at addInitalizeFromCtor (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:15:28)
+    at CodeActionProvider.provideCodeActions (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:19:9)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:562
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:287
+    at new Promise (<anonymous>:null:null)
+    at Object.t.asPromise (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:259)
+    at P.provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:533)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:972
+    at B._withAdapter (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:591:697)
+    at B.$provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:950)
+    at p._doInvokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:663:275)
+    at p._invokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:662:971)
+    at p._receiveRequest (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:661:588)
+    at p._receiveOneMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:660:468)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:658:691
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:820:285
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at t.PersistentProtocol._receiveMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:193:629)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:190:824
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at p.acceptChunk (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:737)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:89
+    at Socket.t (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:195:68)
+    at Socket.emit (events.js:200:13)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+
+[2019-12-23 14:22:38.188] [renderer1] [error] Illegal argument: line must be non-negative: Error: Illegal argument: line must be non-negative
+    at Object.t.illegalArgument (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:9:868)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:360:567)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:359:919)
+    at CodeActionProvider.getInitializeFromCtorCommand (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:166:61)
+    at addInitalizeFromCtor (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:15:28)
+    at CodeActionProvider.provideCodeActions (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:19:9)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:562
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:287
+    at new Promise (<anonymous>:null:null)
+    at Object.t.asPromise (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:259)
+    at P.provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:533)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:972
+    at B._withAdapter (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:591:697)
+    at B.$provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:950)
+    at p._doInvokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:663:275)
+    at p._invokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:662:971)
+    at p._receiveRequest (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:661:588)
+    at p._receiveOneMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:660:468)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:658:691
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:820:285
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at t.PersistentProtocol._receiveMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:193:629)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:190:824
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at p.acceptChunk (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:737)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:89
+    at Socket.t (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:195:68)
+    at Socket.emit (events.js:200:13)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+
+[2019-12-23 14:22:39.215] [renderer1] [error] Illegal argument: line must be non-negative: Error: Illegal argument: line must be non-negative
+    at Object.t.illegalArgument (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:9:868)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:360:567)
+    at new p (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:359:919)
+    at CodeActionProvider.getInitializeFromCtorCommand (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:166:61)
+    at addInitalizeFromCtor (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:15:28)
+    at CodeActionProvider.provideCodeActions (/home/gandalf/.vscode/extensions/jchannon.csharpextensions-1.3.1/out/src/codeActionProvider.js:19:9)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:562
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:287
+    at new Promise (<anonymous>:null:null)
+    at Object.t.asPromise (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:52:259)
+    at P.provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:576:533)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:972
+    at B._withAdapter (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:591:697)
+    at B.$provideCodeActions (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:595:950)
+    at p._doInvokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:663:275)
+    at p._invokeHandler (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:662:971)
+    at p._receiveRequest (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:661:588)
+    at p._receiveOneMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:660:468)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:658:691
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:820:285
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at _.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:189:274)
+    at t.PersistentProtocol._receiveMessage (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:193:629)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:190:824
+    at l.fire (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:893)
+    at p.acceptChunk (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:737)
+    at /nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:186:89
+    at Socket.t (/nix/store/agvrk3zbv6z5wypaa0wr7yl9vll3byh3-vscode-1.41.0/lib/vscode/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:195:68)
+    at Socket.emit (events.js:200:13)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+
+[2019-12-23 14:22:57.976] [renderer1] [error] Problem invoking 'GetCodeActions' on OmniSharp server: Error: Pending request cancelled: /v2/getcodeactions
