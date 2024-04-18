@@ -15,9 +15,6 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 autoload -Uz promptinit && promptinit
 
-alias ls=lsd
-alias cat=bat
-alias grep=rg
 
 # HISTORY
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
@@ -30,7 +27,6 @@ zinit ice as"command" from"gh-r" lucid \
   atpull"%atclone" src"init.zsh" nocompile'!'
 zinit light ajeetdsouza/zoxide
 
-alias cd=__zoxide_z
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -81,6 +77,13 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 source <(docker completion zsh)
 setopt auto_cd
 
+# Personal stuff
+
+alias ls=lsd
+alias cat=bat
+alias grep=rg
+alias cd=__zoxide_z
+
 export SUDO_EDITOR=nvim
 export KUBE_EDITOR="nvim"
 
@@ -92,7 +95,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$FZF_BASE:$PATH"
 
-
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
     ssh-add
@@ -102,23 +104,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-## Keybinds
-# terminal keybindings
-#### ctrl+arrows
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
-bindkey "\e[H"    beginning-of-line  
-bindkey "\e[F"    end-of-line         
-### ctrl+delete
-bindkey "\e[3;5~" kill-word
-
-### delete
-bindkey "\e[3~" delete-char
-
-### ctrl+backspace
-bindkey '^H' backward-kill-word
-
-### ctrl+shift+delete
-bindkey "\e[3;6~" kill-line
 
