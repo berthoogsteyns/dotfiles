@@ -105,3 +105,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
+## Keybinds
+# terminal keybindings
+#### ctrl+arrows
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+bindkey "\e[H"    beginning-of-line  
+bindkey "\e[F"    end-of-line         
+### ctrl+delete
+bindkey "\e[3;5~" kill-word
+
+### delete
+bindkey "\e[3~" delete-char
+
+### ctrl+backspace
+bindkey '^H' backward-kill-word
+
+### ctrl+shift+delete
+bindkey "\e[3;6~" kill-line
