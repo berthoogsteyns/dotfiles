@@ -1,0 +1,5 @@
+import = ["/home/berthoogsteyns/.config/alacritty/themes/themes/gruvbox_material.toml"]
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Regular"
