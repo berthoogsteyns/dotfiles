@@ -41,3 +41,14 @@ map("n", "<leader>z", function()
     window = { width = 0.85 },
   })
 end, { desc = "Toggle zenmode" })
+
+map("n", "<leader>ba", function()
+  Snacks.bufdelete.all()
+end, { desc = "Close all buffers" })
+
+-- vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+-- vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+-- vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+-- vim.cmd([[cab cc CodeCompanion]])

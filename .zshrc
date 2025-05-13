@@ -87,7 +87,8 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export SUDO_EDITOR=nvim
 export KUBE_EDITOR="nvim"
-
+export SYSTEMD_EDITOR=nvim
+export ANSIBLE_HOST_KEY_CHECKING=False
 #exports
 export FZF_BASE="/usr/bin/sk"
 export PATH="$(yarn global bin):$PATH"
@@ -95,12 +96,16 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$FZF_BASE:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+export GEMINI_API_KEY="AIzaSyCgqVjW8HVnU5t0Yt-GeskLD2R7-vNYs34"
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
     ssh-add
 fi
 
+source $HOME/.atuin/bin/env
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -124,3 +129,8 @@ bindkey '^H' backward-kill-word
 
 ### ctrl+shift+delete
 bindkey "\e[3;6~" kill-line
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+. "/home/berthoogsteyns/.deno/env"

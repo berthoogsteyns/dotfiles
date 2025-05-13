@@ -11,6 +11,7 @@ return {
       })
     end,
   },
+  { "imsnif/kdl.vim" },
   { "prisma/vim-prisma" },
   {
     "folke/zen-mode.nvim",
@@ -26,16 +27,11 @@ return {
   },
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
-  -- {
-  --    "m4xshen/hardtime.nvim",
-  --    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-  --    opts = {}
-  -- }, -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "gruvbox",
-      -- background = "light",
+      background = "light",
     },
   },
   {
