@@ -6,7 +6,7 @@ return {
     provider = "copilot",
     copilot = {
       -- endpoint = "https://api.githubcopilot.com",
-      -- model = "gpt-4o",
+      model = "gemini-2.5-pro",
       proxy = nil, -- [protocol://]host[:port] Use this proxy
       allow_insecure = false, -- Allow insecure server connections
       max_tokens = 64000, -- Increase this to include reasoning tokens (for reasoning models
