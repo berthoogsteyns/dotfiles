@@ -7,13 +7,13 @@ local map = vim.keymap.set
 -- local Util = require("lazyvim.util")
 
 if not vim.g.vscode then
-  -- map("n", "<leader>o", function()
-  --   if vim.bo.filetype == "neo-tree" then
-  --     vim.cmd.wincmd("p")
-  --   else
-  --     vim.cmd.Neotree("focus")
-  --   end
-  -- end, { desc = "Toggle neotree focus" })
+  vim.keymap.set("n", "<leader>o", function()
+    if vim.bo.filetype == "snacks-explorer" then
+      vim.cmd.wincmd("p")
+    else
+      require("snacks").explorer.open()
+    end
+  end, { desc = "Focus Snacks Explorer" })
 
   -- ThePrimeagen harpoon keymaps
   local harpoon = require("harpoon")
@@ -46,4 +46,8 @@ if not vim.g.vscode then
   map("n", "<leader>ba", function()
     Snacks.bufdelete.all()
   end, { desc = "Close all buffers" })
+  -- claude code keymaps
+  map("n", "<leader>ac", function()
+    require("claude-code").toggle()
+  end, { desc = "Toggle Claude Code" })
 end

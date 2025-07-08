@@ -2,25 +2,25 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
+  provider = "copilot",
   opts = {
-    provider = "copilot",
-    copilot = {
-      -- endpoint = "https://api.githubcopilot.com",
-      -- model = "gemini-2.5-pro",
-      model = "gpt-4.1",
-      proxy = nil, -- [protocol://]host[:port] Use this proxy
-      allow_insecure = false, -- Allow insecure server connections
-      max_tokens = 64000, -- Increase this to include reasoning tokens (for reasoning models
-    },
-    gemini = {
-      -- endpoint = "https://api.openai.com/v1",
-      model = "gemini-2.5-pro-exp-03-25", -- your desired model (or use gpt-4o, etc.)
-      -- disabled_tools = { "str_replace" },
-      -- timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      -- temperature = 0,
-      -- api_key_name = "OPENROUTER_API_KEY",
-      max_tokens = 64000, -- Increase this to include reasoning tokens (for reasoning models
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+    providers = {
+      copilot = {
+        model = "gpt-4.1",
+        proxy = nil, -- [protocol://]host[:port] Use this proxy
+        allow_insecure = false, -- Allow insecure server connections
+        max_tokens = 64000, -- Increase this to include reasoning tokens (for reasoning models
+      },
+      -- gemini = {
+      --   -- endpoint = "https://api.openai.com/v1",
+      --   model = "gemini-2.5-pro-exp-03-25", -- your desired model (or use gpt-4o, etc.)
+      --   -- disabled_tools = { "str_replace" },
+      --   -- timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+      --   -- temperature = 0,
+      --   -- api_key_name = "OPENROUTER_API_KEY",
+      --   max_tokens = 64000, -- Increase this to include reasoning tokens (for reasoning models
+      --   --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      -- },
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
