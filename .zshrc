@@ -98,7 +98,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$FZF_BASE:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
-export GEMINI_API_KEY="AIzaSyCgqVjW8HVnU5t0Yt-GeskLD2R7-vNYs34"
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
