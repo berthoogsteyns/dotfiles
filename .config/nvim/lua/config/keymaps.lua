@@ -46,8 +46,4 @@ if not vim.g.vscode then
   map("n", "<leader>ba", function()
     Snacks.bufdelete.all()
   end, { desc = "Close all buffers" })
-  -- claude code keymaps
-  map("n", "<leader>ac", function()
-    require("claude-code").toggle()
-  end, { desc = "Toggle Claude Code" })
 end
