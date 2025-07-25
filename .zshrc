@@ -1,3 +1,7 @@
+# ================================================================
+# ZINIT PLUGIN LOADING
+# ================================================================
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -11,48 +15,28 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-autoload -Uz promptinit && promptinit
+# Zoxide setup
+# zinit ice as"command" from"gh-r" lucid \
+#   mv"zoxide*/zoxide -> zoxide" \
+#   atclone"./zoxide init --cmd j zsh > init.zsh" \
+#   atpull"%atclone" src"init.zsh" nocompile'!'
+# zinit light ajeetdsouza/zoxide
 
-
-# HISTORY
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
-HISTSIZE=290000
-SAVEHIST=$HISTSIZE
-
-zinit ice as"command" from"gh-r" lucid \
-  mv"zoxide*/zoxide -> zoxide" \
-  atclone"./zoxide init --cmd j zsh > init.zsh" \
-  atpull"%atclone" src"init.zsh" nocompile'!'
-zinit light ajeetdsouza/zoxide
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
+# Load important annexes (required for annexes)
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
-# compdef __zoxide_z_complete cd
-eval "$(~/.local/share/zinit/plugins/ajeetdsouza---zoxide/zoxide init zsh)"
 
-# zinit light starship 'starship init zsh --print-full-init'
-eval "$(starship init zsh)"
-# hook for direnv
-eval "$(direnv hook zsh)"
-
+# Load plugins with turbo mode
 zinit wait lucid for \
   OMZP::history \
-
-zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
-zinit wait lucid for \
   atinit"zicompinit; zicdreplay"  \
       zdharma-continuum/fast-syntax-highlighting \
       OMZP::colored-man-pages \
       zdharma-continuum/history-search-multi-word \
       MichaelAquilina/zsh-you-should-use \
-      OMZP::colored-man-pages \
       OMZP::git \
       OMZP::fzf \
       OMZP::kubectl \
@@ -64,72 +48,116 @@ zinit wait lucid for \
   atload"!_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions
 
+# Docker completion
 zinit ice as"completion"
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-eval "$(~/.local/share/zinit/plugins/ajeetdsouza---zoxide/zoxide init zsh)"
 
+# ================================================================
+# ALL EVALUATIONS
+# ================================================================
+
+# zoxide initialization
+eval "$(zoxide init zsh)"
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# Direnv hook
+eval "$(direnv hook zsh)"
+
+# SSH agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+    ssh-add
+fi
+
+# Atuin setup
+source $HOME/.atuin/bin/env
+eval "$(atuin init zsh)"
+
+# NVM setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Kubectl completion
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Docker completion
+source <(docker completion zsh)
+
+# Deno environment
+. "/home/berthoogsteyns/.deno/env"
+
+# ================================================================
+# ZSH STYLING
+# ================================================================
+
+# History configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=290000
+SAVEHIST=$HISTSIZE
+
+# Completion path and autoload
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+autoload -Uz promptinit && promptinit
+
+# Completion styles
 zstyle ':completion:*' completer _complete _ignored _correct _approximate
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' menu select
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
-source <(docker completion zsh)
+
+# Shell options
 setopt auto_cd
 
-# Personal stuff
+# ================================================================
+# EXPORTS
+# ================================================================
+
+# Editor configuration
+export SUDO_EDITOR=nvim
+export KUBE_EDITOR="nvim"
+export SYSTEMD_EDITOR=nvim
+
+# Environment variables
+export ANSIBLE_HOST_KEY_CHECKING=False
+
+# Path configuration
+export FZF_BASE="/usr/bin/sk"
+export PATH="$(yarn global bin):$HOME/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.cargo/bin:$FZF_BASE:/usr/local/go/bin:$HOME/go/bin:$PATH"
+
+# ================================================================
+# ALIASES
+# ================================================================
 
 alias ls=lsd
 alias cat=bat
 alias grep=rg
-alias cd=__zoxide_z
+alias cd=z
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-export SUDO_EDITOR=nvim
-export KUBE_EDITOR="nvim"
-export SYSTEMD_EDITOR=nvim
-export ANSIBLE_HOST_KEY_CHECKING=False
-#exports
-export FZF_BASE="/usr/bin/sk"
-export PATH="$(yarn global bin):$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$FZF_BASE:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
+# ================================================================
+# TERMINAL KEYBINDS
+# ================================================================
 
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent`
-    ssh-add
-fi
-
-source $HOME/.atuin/bin/env
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-## Keybinds
-# terminal keybindings
-#### ctrl+arrows
+# Ctrl+arrows
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 bindkey "\e[H"    beginning-of-line  
 bindkey "\e[F"    end-of-line         
-### ctrl+delete
+
+# Ctrl+delete
 bindkey "\e[3;5~" kill-word
 
-### delete
+# Delete
 bindkey "\e[3~" delete-char
 
-### ctrl+backspace
+# Ctrl+backspace
 bindkey '^H' backward-kill-word
 
-### ctrl+shift+delete
+# Ctrl+shift+delete
 bindkey "\e[3;6~" kill-line
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
-. "/home/berthoogsteyns/.deno/env"

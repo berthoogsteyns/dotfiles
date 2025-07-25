@@ -2,7 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local map = vim.keymap.set
+local function map(lhs, rhs, desc)
+  vim.keymap.set("n", lhs, rhs, { desc = desc })
+end
 
 -- local Util = require("lazyvim.util")
 
@@ -19,31 +21,32 @@ if not vim.g.vscode then
   local harpoon = require("harpoon")
   local zenmode = require("zen-mode")
 
-  map("n", "<leader><leader>a", function()
+  for i = 1, 5 do
+    map(("<leader>%d"):format(i), function()
+      harpoon:list():select(i)
+    end, ("harpoon open file %d"):format(i))
+  end
+  map("<leader>ha", function()
     harpoon:list():add()
-  end, { desc = "Toggle harpoon menu" })
-  map("n", "<leader><leader>e", function()
+  end, "add current file")
+  -- map("<leader>hr", harpoon.list():remove(), "remove current file")
+  map("<leader>hu", function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
-  end, { desc = "Toggle harpoon menu" })
-  map("n", "<leader><leader>1", function()
-    harpoon:list():select(1)
-  end, { desc = "goto first harpoon" })
-  map("n", "<leader><leader>2", function()
-    harpoon:list():select(2)
-  end, { desc = "goto second harpoon" })
-  map("n", "<leader><leader>3", function()
-    harpoon:list():select(3)
-  end, { desc = "goto third harpoon" })
-  map("n", "<leader><leader>4", function()
-    harpoon:list():select(4)
-  end, { desc = "goto fourth harpoon" })
-  map("n", "<leader>z", function()
+  end, "toggle UI")
+  map("<leader>hn", function()
+    harpoon:list():next()
+  end, "next file")
+  map("<leader>hp", function()
+    harpoon:list():prev()
+  end, "previous file")
+
+  map("<leader>z", function()
     zenmode.toggle({
       window = { width = 0.85 },
     })
-  end, { desc = "Toggle zenmode" })
+  end, "Toggle zenmode")
 
-  map("n", "<leader>ba", function()
+  map("<leader>ba", function()
     Snacks.bufdelete.all()
-  end, { desc = "Close all buffers" })
+  end, "Close all buffers")
 end
