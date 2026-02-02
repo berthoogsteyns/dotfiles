@@ -38,5 +38,5 @@ require("lazy").setup({
     },
   },
 })
-vim.cmd("set background=light")
+vim.o.background = "dark"
 -- vim.opt.mouse = ""

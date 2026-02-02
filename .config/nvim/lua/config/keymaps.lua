@@ -9,13 +9,13 @@ end
 -- local Util = require("lazyvim.util")
 
 if not vim.g.vscode then
-  vim.keymap.set("n", "<leader>o", function()
-    if vim.bo.filetype == "snacks-explorer" then
-      vim.cmd.wincmd("p")
-    else
-      require("snacks").explorer.open()
-    end
-  end, { desc = "Focus Snacks Explorer" })
+  -- vim.keymap.set("n", "<leader>o", function()
+  --   if vim.bo.filetype == "snacks-explorer" then
+  --     vim.cmd.wincmd("p")
+  --   else
+  --     require("snacks").explorer.open()
+  --   end
+  -- end, { desc = "Focus Snacks Explorer" })
 
   -- ThePrimeagen harpoon keymaps
   local harpoon = require("harpoon")

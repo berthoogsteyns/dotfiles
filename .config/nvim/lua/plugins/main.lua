@@ -30,8 +30,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
-      background = "light",
+      colorscheme = "cyberdream",
     },
   },
   {
@@ -103,7 +102,7 @@ return {
     },
   },
 
-  -- add pyright to lspconfig
+  -- add pyright to lspconfig with workspace configuration
   -- {
   --   "neovim/nvim-lspconfig",
   --   ---@class PluginLspOpts
@@ -111,7 +110,167 @@ return {
   --     ---@type lspconfig.options
   --     servers = {
   --       -- pyright will be automatically installed with mason and loaded with lspconfig
-  --       pyright = {},
+  --       pyright = {
+  --         cmd = function()
+  --           local cmd = { "pyright-langserver", "--stdio" }
+  --           print("[pyright_lsp] Using command: " .. vim.inspect(cmd))
+  --           return cmd
+  --         end,
+  --         settings = {
+  --           python = {
+  --             analysis = {
+  --               -- Enhanced workspace configuration for uv monorepo
+  --               autoSearchPaths = true,
+  --               useLibraryCodeForTypes = true,
+  --               typeCheckingMode = "basic", -- Match pyrightconfig.json setting
+  --               autoImportCompletions = true,
+  --               diagnosticMode = "workspace", -- Analyze entire workspace
+  --               -- Enable verbose output for debugging import resolution
+  --               verboseOutput = true, -- Match pyrightconfig.json setting
+  --               -- Additional paths for uv workspace dependencies
+  --               extraPaths = {
+  --                 "packages",
+  --                 "packages/shared",
+  --                 "packages/cli",
+  --                 "packages/ansible_runner",
+  --                 "packages/keycloak",
+  --                 "packages/ui",
+  --               },
+  --               indexing = true,
+  --             },
+  --           },
+  --         },
+  --         on_init = function(client, initialize_result)
+  --           print("[pyright_lsp] Server initialized with client ID: " .. client.id)
+  --           print("[pyright_lsp] Server capabilities: " .. vim.inspect(client.server_capabilities))
+  --           print("[pyright_lsp] Initialize result: " .. vim.inspect(initialize_result))
+  --         end,
+  --         on_exit = function(code, signal, client_id)
+  --           print("[pyright_lsp] Server exited with code: " .. (code or "unknown"))
+  --           print("[pyright_lsp] Signal: " .. (signal or "none"))
+  --           print("[pyright_lsp] Client ID: " .. (client_id or "unknown"))
+  --         end,
+  --         on_attach = function(client, bufnr)
+  --           local bufname = vim.api.nvim_buf_get_name(bufnr)
+  --           local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  --           print("[pyright_lsp] Successfully attached to buffer " .. bufnr)
+  --           print("[pyright_lsp] File: " .. bufname)
+  --           print("[pyright_lsp] Filetype: " .. filetype)
+  --           print("[pyright_lsp] Client name: " .. client.name)
+  --           print("[pyright_lsp] Root dir: " .. (client.config.root_dir or "unknown"))
+  --         end,
+  --         root_dir = function(fname)
+  --           local util = require("lspconfig.util")
+  --
+  --           -- Handle case where fname might be a buffer number
+  --           local filename
+  --           if type(fname) == "number" then
+  --             filename = vim.api.nvim_buf_get_name(fname)
+  --             print("[pyright_lsp] Got buffer number: " .. fname .. ", filename: " .. filename)
+  --           else
+  --             filename = fname
+  --             print("[pyright_lsp] Got filename: " .. filename)
+  --           end
+  --
+  --           -- Check if file extension is .py
+  --           local is_python = filename:match("%.py$") ~= nil
+  --
+  --           print("[pyright_lsp] Searching for root dir for: " .. filename)
+  --           print("[pyright_lsp] Is Python file: " .. tostring(is_python))
+  --
+  --           -- Only proceed if this is a Python file
+  --           if not is_python then
+  --             print("[pyright_lsp] Not a Python file, skipping attachment")
+  --             return nil
+  --           end
+  --
+  --           -- Try multiple Python project indicators in order of preference
+  --           local root_patterns = {
+  --             "uv.lock", -- uv projects
+  --             "pyproject.toml", -- Modern Python projects
+  --             "requirements.txt", -- Traditional pip projects
+  --             "setup.py", -- Setuptools projects
+  --             "setup.cfg", -- Alternative setup configuration
+  --             "Pipfile", -- Pipenv projects
+  --             "poetry.lock", -- Poetry projects
+  --             ".git", -- Git repository root
+  --           }
+  --
+  --           local root_finder = util.root_pattern(unpack(root_patterns))
+  --           local root = root_finder(filename)
+  --
+  --           if root then
+  --             print("[pyright_lsp] Found root directory: " .. root)
+  --             return root
+  --           else
+  --             -- Fallback to current directory
+  --             local fallback = vim.fn.getcwd()
+  --             print("[pyright_lsp] No project root found, using fallback: " .. fallback)
+  --             return fallback
+  --           end
+  --         end,
+  --         capabilities = {
+  --           textDocument = {
+  --             completion = {
+  --               completionItem = {
+  --                 snippetSupport = true,
+  --                 resolveSupport = {
+  --                   properties = { "documentation", "detail", "additionalTextEdits" },
+  --                 },
+  --               },
+  --             },
+  --           },
+  --           workspace = {
+  --             workspaceSymbol = {
+  --               symbolKind = {
+  --                 valueSet = {},
+  --               },
+  --             },
+  --             -- Enable workspace folder support for monorepos
+  --             workspaceFolders = true,
+  --           },
+  --         },
+  --         -- Additional settings for uv monorepo support
+  --         -- on_new_config = function(new_config, new_root_dir)
+  --         --   -- Dynamic configuration based on workspace structure
+  --         --   if new_root_dir then
+  --         --     -- Add common uv workspace patterns to extraPaths
+  --         --     local potential_paths = {
+  --         --       new_root_dir .. "/packages",
+  --         --       new_root_dir .. "/packages/shared",
+  --         --       new_root_dir .. "/packages/cli",
+  --         --       new_root_dir .. "/packages/ansible_runner",
+  --         --       new_root_dir .. "/packages/keycloak",
+  --         --       new_root_dir .. "/packages/ui",
+  --         --       new_root_dir .. "/src",
+  --         --       new_root_dir .. "/libs",
+  --         --       new_root_dir .. "/apps",
+  --         --     }
+  --         --
+  --         --     local extra_paths = { "packages" }
+  --         --     for _, path in ipairs(potential_paths) do
+  --         --       if vim.fn.isdirectory(path) == 1 then
+  --         --         table.insert(extra_paths, path)
+  --         --       end
+  --         --     end
+  --         --
+  --         --     -- Always include the base paths for the workspace
+  --         --     for _, pkg_dir in ipairs({
+  --         --       "packages/shared",
+  --         --       "packages/cli",
+  --         --       "packages/ansible_runner",
+  --         --       "packages/keycloak",
+  --         --       "packages/ui",
+  --         --     }) do
+  --         --       if vim.fn.isdirectory(new_root_dir .. "/" .. pkg_dir) == 1 then
+  --         --         table.insert(extra_paths, pkg_dir)
+  --         --       end
+  --         --     end
+  --         --
+  --         --     new_config.settings.python.analysis.extraPaths = extra_paths
+  --         --   end
+  --         -- end,
+  --       },
   --     },
   --   },
   -- },
@@ -213,7 +372,7 @@ return {
 
   -- add any tools you want to have installed below
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",
@@ -286,4 +445,5 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  -- { "serhez/bento.nvim", opts = {} },
 }

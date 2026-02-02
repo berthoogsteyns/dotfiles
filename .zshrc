@@ -93,6 +93,9 @@ source <(docker completion zsh)
 # ZSH STYLING
 # ================================================================
 
+# Autosuggestion color (brighter for better visibility)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#7b8496'
+
 # History configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 HISTSIZE=290000
@@ -161,3 +164,8 @@ bindkey '^H' backward-kill-word
 
 # Ctrl+shift+delete
 bindkey "\e[3;6~" kill-line
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+# opencode
+export PATH=/home/berthoogsteyns/.opencode/bin:$PATH
